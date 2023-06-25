@@ -17,6 +17,8 @@ class Node:
         self.prev_node = prev_node
         self.value = value
         self.next_node = next_node
+        self.frequency = 0
+        self.count = 0
         
     def __repr__(self):
         return f"Node({self.value})"
