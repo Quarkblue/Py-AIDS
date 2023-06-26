@@ -13,11 +13,15 @@ class Node:
             The next node in the linked list. The default is None.
         prev_node : Node, optional
             The previous node in the linked list. The default is None.
+        frequency : int, optional
+            The frequency of the node. The default is 0.
+        count : float, optional
+            The count of the node. The default is 0.
         """
         self.prev_node = prev_node
         self.value = value
         self.next_node = next_node
-        self.frequency = 0
+        self.frequency = 0.0
         self.count = 0
         
     def __repr__(self):
