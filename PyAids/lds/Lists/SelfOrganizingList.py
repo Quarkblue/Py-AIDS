@@ -1,4 +1,5 @@
 from .LinkedList import LinkedList
+from .Node import Node
 
 class SOList:
     
@@ -29,8 +30,12 @@ class SOList:
         return len(self.list)
     
     
-    def __organize_mtf(self) -> None:
-        pass
+    def __organize_mtf(self, node) -> None:
+        if node is self.list.head:
+            return
+        else:
+            self.list.delete_value(node.value)
+            self.list.insert_begin(node.value)
     
     def __organize_transpose(self) -> None:
         pass
@@ -41,9 +46,9 @@ class SOList:
     def __organize_frequency(self) -> None:
         pass
     
-    def __organize(self) -> None:
+    def __organize(self, node: Node) -> None:
         if self.mtf:
-            self.__organize_mtf()
+            self.__organize_mtf(node)
         elif self.frequency:
             self.__organize_frequency()
         elif self.Count:
@@ -77,7 +82,7 @@ class SOList:
             if self.list.head.value == value:
                 self.list.head.count += 1
                 self.list.head.frequency = self.list.head.count / self.total_search
-                self.__organize()
+                self.__organize(self.list.head)
                 return (True, self.list.head)
             else:
                 return (False, None)
@@ -86,9 +91,10 @@ class SOList:
             node = self.list.head
             while node is not None:
                 if node.value == value:
+                    print(node)
                     node.count += 1
                     node.frequency = node.count / self.total_search
-                    self.__organize()
+                    self.__organize(node)
                     return (True, node)
                 else:
                     node = node.next_node
