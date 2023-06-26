@@ -122,7 +122,7 @@ class LinkedList:
             return False
         else:
             current = self.head
-            while current.next_node != None:
+            while current != None:
                 if current.value == value:
                     return True
                 current = current.next_node
@@ -230,7 +230,7 @@ class LinkedList:
         else:
             if self.search(value):
                 self.delete_index(self.index(value))
-                
+
             else:
                 raise ValueError("The value is not present in the linked list.")
             
