@@ -22,7 +22,7 @@ class Array:
         if index < 0 or index >= self._size or index >= len(self._array):
             
             raise IndexError("Index out of range")
-        elif str(type(obj)) != f"<class '{self._type}'>":
+        elif not isinstance(obj, self._type):
             raise TypeError(f"Type Error: {self._type} expected, got {type(obj)}")
         else:
             self._array[index] = obj
