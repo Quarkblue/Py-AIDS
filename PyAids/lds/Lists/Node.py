@@ -13,9 +13,9 @@ class Node:
             The next node in the linked list. The default is None.
         prev_node : Node, optional
             The previous node in the linked list. The default is None.
-        frequency : int, optional
-            The frequency of the node. The default is 0.
-        count : float, optional
+        frequency : float, optional
+            The frequency of the node. The default is 0.0
+        count : int, optional
             The count of the node. The default is 0.
         """
         self.prev_node = prev_node
