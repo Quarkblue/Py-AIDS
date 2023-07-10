@@ -4,3 +4,4 @@ testnb.ipynb
 .vscode/
 *.code-workspace
 **/__pycache__/
+.idea/
