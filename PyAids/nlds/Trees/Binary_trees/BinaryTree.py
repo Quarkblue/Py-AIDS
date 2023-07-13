@@ -194,3 +194,55 @@ class BinaryTree:
             self.postorderView.append(root.value)
             
         return self.postorderView
+    
+    
+    def height(self):
+        return self.__height_helper(self.root)
+    
+    def __height_helper(self, root):
+        if root is None:
+            return 0
+        else:
+            left_height = self.__height_helper(root.left)
+            right_height = self.__height_helper(root.right)
+            if left_height > right_height:
+                return left_height + 1
+            else:
+                return right_height + 1
+            
+            
+    def size(self):
+        return self.__size_helper(self.root)
+    
+    def __size_helper(self, root):
+        if root is None:
+            return 0
+        else:
+            return self.__size_helper(root.left) + 1 + self.__size_helper(root.right)
+        
+    def is_empty(self):
+        if self.root is None:
+            return True
+        else:
+            return False
+        
+    def max(self):
+        return self.__max_helper(self.root)
+    
+    
+    def __max_helper(self, root):
+        if root is None:
+            return float("-inf")
+        else:
+            return max(root.value, self.__max_helper(root.left), self.__max_helper(root.right))
+        
+        
+    def min(self):
+        return self.__min_helper(self.root)
+    
+    
+    def __min_helper(self, root):
+        if root is None:
+            return float("+inf")
+        else:
+            return min(root.value, self.__min_helper(root.left), self.__min_helper(root.right))
