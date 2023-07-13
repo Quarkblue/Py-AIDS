@@ -1,17 +1,3 @@
-"""
-* `insert()`
-* `search()`
-* `delete()`
-* `inorder()`
-* `preorder()`
-* `postorder()`
-* `height()`
-* `size()`
-* `is_empty()`
-* `min()`
-* `max()`
-"""
-
 from .Node import Node
 
 
