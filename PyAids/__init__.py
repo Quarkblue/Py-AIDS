@@ -11,3 +11,4 @@ from .lds.Lists.LinkedList import LinkedList
 from .lds.Lists.DoublyLinkedList import DoublyLinkedList
 from .lds.Lists.SelfOrganizingList import SOList
 from .nlds.Trees.Binary_trees.BinaryTree import BinaryTree
+from .nlds.Trees.Binary_trees.BinarySearchTree import BST
