@@ -2,8 +2,48 @@ from .Node import Node
 
 
 class BST:
+    """
+    Create a Binary search tree object
+    Attributes
+    -----------
+    root : any
+        The root node of the tree
+    inorderView : list
     
+    Methods
+    -------
+    insert(value: any)
+        Insert a node with given into the tree
+    search(value: any)
+        Search for a node with given value in the tree
+    delete(value: any)
+        Delete a node with given value from the tree
+    inorder() : List
+        Return a list of the inorder traversal of the tree
+    preorder()
+        Return a list of the preorder traversal of the tree
+    postorder()
+        Return a list of the postorder traversal of the tree
+    height()
+        Return the height of the tree
+    size()
+        Return the size of the tree
+    max()
+        Return the maximum value in the tree
+    min()
+        Return the minimum value in the tree
+    validate()
+        Return True if the tree is a valid BST, False otherwise
+    balance()
+        Balance the tree
+    """
     def __init__(self, root : any = None) -> None:
+        """
+        Parameters
+        ----------
+        root: any
+            The root node of the tree
+        """
         if root == None:
             self.root = None
         else:
@@ -31,7 +71,7 @@ class BST:
         else:
             self.__insert_helper(self.root, value)
         
-            self.__balance(self.root)
+            self.balance(self.root)
             
             
     def __insert_helper(self, node: Node, value: any) -> None:
@@ -244,7 +284,7 @@ class BST:
         new_root.right = root
         return new_root
     
-    def __balance(self, root: Node) -> None:
+    def balance(self, root: Node) -> None:
         balance_factor = self.__balance_factor(root)
         
         # if tree is left heavy
