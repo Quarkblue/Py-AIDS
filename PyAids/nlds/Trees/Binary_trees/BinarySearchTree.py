@@ -66,6 +66,13 @@ class BST:
         return f"{indent}{node.value}\n" + self.__str_repr(node.left, indent + "left ") + self.__str_repr(node.right, indent + "right ")
     
     def insert(self, value: any) -> None:
+        """
+        Insert a node with the given value and balance the tree
+        Parameters
+        ----------
+        value : any
+            value for the node to insert
+        """
         if self.root == None:
             self.root = Node(value)
         else:
@@ -90,6 +97,13 @@ class BST:
         
     
     def search(self, value: any) -> Node:
+        """
+        Search the tree for the given value
+        Parameters
+        ----------
+        value : any
+            value to search for
+        """
         current = self.root
         
         if current is not None:
@@ -127,6 +141,13 @@ class BST:
     
             
     def delete(self, value: any) -> None:
+        """
+        Delete a node with value as the given value
+        Parameters
+        ----------
+        value : any
+            value to search for and delete from the tree
+        """
         current = self.root
         if current is not None:
             if current.value == value:
@@ -178,6 +199,12 @@ class BST:
             
             
     def inorder(self) -> list:
+        """
+        returns a list of the value of the tree in 'Inorder' sequence
+        Returns
+        -------
+        list
+        """
         return self.__inorder_helper(self.root)
     
     
@@ -190,6 +217,9 @@ class BST:
         return self.__inorderView
     
     def preorder(self) -> list:
+        """
+        returns a list of the value of the tree in 'Preorder' sequence
+        """
         return self.__preorder_helper(self.root)
     
     def __preorder_helper(self, root: Node) -> list:
@@ -201,6 +231,9 @@ class BST:
         return self.__preorderView
     
     def postorder(self) -> list:
+        """
+        returns a list of the value of the tree in 'Postorder' sequence
+        """
         return self.__postorder_helper(self.root)
     
     
@@ -213,6 +246,13 @@ class BST:
         return self.__postorderView
     
     def height(self) -> int:
+        """
+        Returns the height of the tree
+        Returns
+        -------
+        int :
+            Height of the tree
+        """
         return self.__height_helper(self.root)
     
     def __height_helper(self, root: Node) -> int:
@@ -223,6 +263,13 @@ class BST:
         
         
     def size(self) -> int:
+        """
+        Returns the size of the tree
+        Returns
+        -------
+        int:
+            Size of the tree    
+        """
         return self.__size_helper(self.root)
     
     def __size_helper(self, root: Node):
@@ -232,17 +279,31 @@ class BST:
             return self.__size_helper(root.left) + 1 + self.__size_helper(root.right)
         
         
-    def max(self) -> any:
+    def max(self) -> Node:
+        """
+        Returns the node with the maximum value in the tree
+        Returns
+        -------
+        Node:
+            Node object with the maximum value
+        """
         return self.__max_helper(self.root)
     
-    def __max_helper(self, root: Node) -> any:
+    def __max_helper(self, root: Node) -> Node:
         if root is None:
             return float("-inf")
         else:
             return max(root.value, self.__max_helper(root.left), self.__max_helper(root.right))
         
         
-    def min(self) -> any:
+    def min(self) -> Node:
+        """
+        Returns the node the with least value of all
+        Returns
+        -------
+        Node:
+            Node object with the least value
+        """
         return self.__min_helper(self.root)
     
     def __min_helper(self, root) -> any:
@@ -252,6 +313,14 @@ class BST:
             return min(root.value, self.__min_helper(root.left), self.__min_helper(root.right))        
 
     def validate(self) -> bool:
+        """
+        Verifies if the Tree is a valid Binary search tree
+        Returns
+        -------
+        bool :
+            True : if the tree is a valid Binary search tree
+            False : if the tree is not a valid Binary search tree
+        """
         return self.__validate_helper(self.root)
     
     def __validate_helper(self, root: Node) -> bool:
@@ -285,6 +354,13 @@ class BST:
         return new_root
     
     def balance(self, root: Node) -> None:
+        """
+        Balances the tree
+        Parameters
+        ----------
+        root: Node
+            root of the tree
+        """
         balance_factor = self.__balance_factor(root)
         
         # if tree is left heavy
